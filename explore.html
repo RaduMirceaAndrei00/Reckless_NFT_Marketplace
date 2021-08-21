@@ -784,7 +784,7 @@
         let pub_key_hash = "";
         let msgBl = 0;
         $(document).ready(async function(){
-            await $.post("https://higher-order-games.net:8099/get_metadata", {map_id: "115681"}, function(d, status){
+            await $.post("https://higher-order-games.net:8099/get_metadata", {map_id: "122426"}, function(d, status){
                 let data = d;
                 let i=0;
                 for(let el of data) {
@@ -792,7 +792,7 @@
                     metadata_map.set(intKey, el.Item2);
                 }
             });
-            await $.get("http://higher-order-games.net:9999/proxy/explorer/bigmap/115677/values?limit=50", function(d, status){
+            await $.get("http://higher-order-games.net:9999/proxy/explorer/bigmap/122422/values?limit=50", function(d, status){
                // $("#nft_element").css("display", "none");
                 let data = d;
                 let i=0;
@@ -916,7 +916,7 @@
         });
         function bid(key) {
             let a = parseFloat(document.getElementById(`bid${key}`).value);
-            let address = "KT1FPENN4459ZiFjkaT1anpektDN16os6hK3";
+            let address = "KT1Mw7E46UuQk62imBoYzTSUCpuz3LLXZ7qo";
             let func = "bid";
             let args = JSON.stringify([{"0": key, "1": a}]);
             let str = encodeURI(`{"address":"${address}","func":"${func}","args":${args}}`);

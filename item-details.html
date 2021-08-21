@@ -443,7 +443,7 @@
             let urlParams = new URLSearchParams(queryString);
             let key = urlParams.get("key");
             let a = parseFloat(document.getElementById("Bid").value);
-            let address = "KT1AwmzMVKjMmXYTVpdQsDtneVcSTkE6JZKZ";
+            let address = "KT1Mw7E46UuQk62imBoYzTSUCpuz3LLXZ7qo";
             let func = "bid";
             let args = JSON.stringify([{"0": key, "1": a}]);
             let str = encodeURI(`{"address":"${address}","func":"${func}","args":${args}}`);

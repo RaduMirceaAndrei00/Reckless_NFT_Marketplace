@@ -254,7 +254,7 @@
         let msgBl = 0;
         function myReady() {
             $(document).ready(async function(){
-                await $.post("https://higher-order-games.net:8099/get_metadata", {map_id: "108508"}, function(d, status){
+                await $.post("https://higher-order-games.net:8099/get_metadata", {map_id: "122426"}, function(d, status){
                     let data = d;
                     let i=0;
                     for(let el of data) {
@@ -262,7 +262,7 @@
                         metadata_map.set(intKey, el.Item2);
                     }
                 });
-                await $.get("http://higher-order-games.net:9999/proxy/explorer/bigmap/108504/values?limit=50", function(d, status){
+                await $.get("http://higher-order-games.net:9999/proxy/explorer/bigmap/122422/values?limit=50", function(d, status){
                 // $("#nft_element").css("display", "none");
                     let data = d;
                     let i=0;
