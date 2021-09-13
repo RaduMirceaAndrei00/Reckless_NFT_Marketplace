@@ -6,12 +6,12 @@ const axios = require('axios');
 const http = require('http');
 const https = require('https');
 const fs = require('fs');
-const queryString = require('query-string')
+//const queryString = require('query-string')
 var morgan = require('morgan');
 var Mutex = require('async-mutex').Mutex;
 const path = require('path');
 
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 
 const mutex = new Mutex();
 //app.use(cors({origin: [/localhost/i]}));
