@@ -262,15 +262,12 @@
                         metadata_map.set(intKey, el.Item2);
                     }
                 });
-                await $.get("http://higher-order-games.net:9999/proxy/explorer/bigmap/122422/values?limit=50", function(d, status){
+                await $.get(`http://higher-order-games.net:9997/proxy/v1/bigmaps/122422/keys?value.seller=${pub_key_hash}&select=key,value`, function(d, status){
                 // $("#nft_element").css("display", "none");
                     let data = d;
                     let i=0;
                     for(let q = data.length - 1; q >= 0; q--) {
                         el = data[q];
-                        if(el.value.seller !== pub_key_hash){
-                            continue;
-                        }
                         let endDate = new Date(el.value.end_);
                         let year = 1900 + endDate.getYear();
                         let month = 1 + endDate.getMonth();
@@ -289,8 +286,8 @@
                         let collection = [];
                         mysteries = [];
                         let prd_array_3 = prd_array_2[0];
-                        let product_id = parseInt(prd_array_3["0"]);
-                        let sz = parseInt(prd_array_3["1"]);
+                        let product_id = parseInt(prd_array_3.nat_0);
+                        let sz = parseInt(prd_array_3.nat_1);
                         let metadata = metadata_map.get(product_id);
                         if(sz > 1)
                             metadata_name = sz.toString() + " x " + metadata.name;
@@ -300,7 +297,7 @@
                         let y = "";
                         for(let i = 0; i < prd_array_1.length; i++){
                             let prd_array_2 = prd_array_1[i];
-                            if(prd_array_2[0]["2"]=="100")
+                            if(prd_array_2[0].nat_2=="100")
                                 collection.push.apply(collection, prd_array_2);
                             else
                                 mysteries.push(prd_array_2);
@@ -342,16 +339,16 @@
                                     </div>-->` + 
                                     y +
                                     `<div class="nft__item_wrap">
-                                        <a href="item-details.html?collection=${collStr}&mysteries=${mystStr}&name=${encodeURI(metadata_name)}&key=${encodeURI(intKey)}&img=${encodeURI(metadata_thumbnailUri)}&price=${encodeURI(el.value.price["2"])}&end=${encodeURI(el.value.end_)}">
+                                        <a href="item-details.html?collection=${collStr}&mysteries=${mystStr}&name=${encodeURI(metadata_name)}&key=${encodeURI(intKey)}&img=${encodeURI(metadata_thumbnailUri)}&price=${encodeURI(el.value.price.nat_1)}&end=${encodeURI(el.value.end_)}">
                                             <img src="${metadata_thumbnailUri}" class="lazy nft__item_preview" alt="">
                                         </a>
                                     </div>
                                     <div class="nft__item_info">
-                                        <a href="item-details.html?collection=${collStr}&mysteries=${mystStr}&name=${encodeURI(metadata_name)}&key=${encodeURI(intKey)}&img=${encodeURI(metadata_thumbnailUri)}&price=${encodeURI(el.value.price["2"])}&end=${encodeURI(el.value.end_)}">
+                                        <a href="item-details.html?collection=${collStr}&mysteries=${mystStr}&name=${encodeURI(metadata_name)}&key=${encodeURI(intKey)}&img=${encodeURI(metadata_thumbnailUri)}&price=${encodeURI(el.value.price.nat_1)}&end=${encodeURI(el.value.end_)}">
                                             <h4>${metadata_name}</h4>
                                         </a>
                                         <div class="nft__item_price">
-                                            ${el.value.price["2"]} REX<!--ꜩ--><!--<span>1/12</span>-->
+                                            ${el.value.price.nat_1} REX<!--ꜩ--><!--<span>1/12</span>-->
                                         </div>
                                         <!--<div class="nft__item_like">
                                             <i class="fa fa-heart"></i><span>24</span>

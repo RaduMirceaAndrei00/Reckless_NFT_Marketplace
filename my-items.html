@@ -280,17 +280,14 @@
                         metadata_map.set(intKey, el.Item2);
                     }
                 });
-                await $.get("http://higher-order-games.net:9999/proxy/explorer/bigmap/122423/values?limit=50", function(d, status){
+                await $.get(`http://higher-order-games.net:9997/proxy/v1/bigmaps/122423/keys?key.address=${pub_key_hash}&select=key,value`, function(d, status){
                 // $("#nft_element").css("display", "none");
                     let data = d;
                     let i=0;
                     for(let q = data.length - 1; q >= 0; q--) {
                         el = data[q];
-                        if(el.key["0"] !== pub_key_hash){
-                            continue;
-                        }
                         let amount = el.value;
-                        let product_id = parseInt(el.key["1"]);
+                        let product_id = parseInt(el.key.nat);
                         let metadata = metadata_map.get(product_id);
                         if(amount > 1)
                             metadata_name = amount.toString() + " x " + metadata.name;
