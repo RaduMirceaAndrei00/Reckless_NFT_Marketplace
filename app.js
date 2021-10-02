@@ -45,8 +45,9 @@ var router = express.Router();
 
 router.use(function(req, res){
     let url = req.url.split('?');
-    console.log(url[0]);
-    res.sendFile(path.join(__dirname+'/' + url[0]));
+    let str = url[0];
+    if(str.includes("..")) str = "";
+    res.sendFile(path.join(__dirname+'/' + str));
 });
 
 app.use('/',router);
