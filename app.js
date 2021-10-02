@@ -62,5 +62,5 @@ const options = {
 
 https.createServer(options, app).listen(port);
 
-app.listen(port);
+//app.listen(port);
 console.log('Magin happens on port ' + port);
