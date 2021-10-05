@@ -262,7 +262,7 @@
                         metadata_map.set(intKey, el.Item2);
                     }
                 });
-                await $.post("https://higher-order-games.net:8099/get_values", {map_id: "122422", args=`value.seller=${pub_key_hash}&select=key,value`}, function(d, status){
+                await $.post("https://higher-order-games.net:8099/get_values", {map_id: "122422", args:`value.seller=${pub_key_hash}&select=key,value`}, function(d, status){
                 // $("#nft_element").css("display", "none");
                     let data = d;
                     let i=0;
