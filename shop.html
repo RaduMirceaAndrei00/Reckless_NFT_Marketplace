@@ -792,7 +792,7 @@
                     metadata_map.set(intKey, el.Item2);
                 }
             });
-            await $.get("http://higher-order-games.net:9997/proxy/v1/bigmaps/122422/keys?select=key,value", function(d, status){
+            await $.post("https://higher-order-games.net:8099/get_values", {map_id: "122422", args="select=key,value"}, function(d, status){
                // $("#nft_element").css("display", "none");
                 let data = d;
                 let i=0;
