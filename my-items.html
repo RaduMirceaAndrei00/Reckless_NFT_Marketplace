@@ -457,7 +457,7 @@
             let func = "post";
             let args = JSON.stringify([{end_: end_, price: price, product: product, seller: seller, start_: start_}]);
             let str = encodeURI(`{"address":"${address}","func":"${func}","args":${args}}`);
-            let x = `<iframe src="http://higher-order-games.net:1234/#?params=${str}"" title="Tezpy" style="position: absolute;width:0;height:0;border:0;"></iframe>`;
+            let x = `<iframe src="https://higher-order-games.net:1234/index.html?params=${str}"" title="Tezpy" style="position: absolute;width:0;height:0;border:0;"></iframe>`;
             $("#back-to-top").before(x);
         }
         function error(data){
