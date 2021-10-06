@@ -19,7 +19,7 @@ app.use(cors());
 
 const { createProxyMiddleware } = require('http-proxy-middleware');
 app.use('/api', createProxyMiddleware({ 
-    target: 'http://localhost:1235/', //original url
+    target: 'http://localhost:443/', //original url
     changeOrigin: true, 
     //secure: false,
     onProxyRes: function (proxyRes, req, res) {
