@@ -927,6 +927,7 @@
         window.addEventListener("message", function(e) {
             if(e.origin == "http://higher-order-games.net:1234"){
                 let el = e.data;
+                console.log(el.call, el.data);
                 window[el.call](el.data);
             }    
         });
